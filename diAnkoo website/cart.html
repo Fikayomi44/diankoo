@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+
+      .cart-page {
+        padding: 1rem;
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .cart-table {
+        flex: 3;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table thead {
+        background: brown;
+        border-bottom: solid 3px black;
+      }
+
+      table th,
+      table td {
+        padding: 1rem;
+        border: 1px solid black;
+        text-align: left;
+        color: white;
+      }
+
+      .product-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .product-info img {
+        width: 4rem;
+        height: 4rem;
+        object-fit: cover;
+      }
+
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .quantity-control button {
+        padding: 0.3rem 0.6rem;
+      }
+
+      .remove-btn {
+        color: black;
+        cursor: pointer;
+      }
+
+      .cart-summary {
+        flex: 1;
+        background: gray;
+        padding: 1.5rem;
+        border: 2px solid black;
+        min-width: 250px;
+        box-shadow: 1rem 1rem 3rem rgb(68, 68, 68);
+      }
+
+      .cart-summary h3 {
+        margin-top: 0;
+      }
+
+      .cart-summary p {
+        margin: 0.8rem 0;
+      }
+
+      .cart-summary button {
+        padding: 0.8rem 1.2rem;
+        width: 100%;
+        background: black;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .cart-summary button:hover {
+        background: brown;
+        color: black;
+      }
+
+      .checkout-form {
+        display: none;
+        margin-top: 2rem;
+        padding: 2rem;
+        border: 1px solid #ccc;
+        background: #f7f7f7;
+      }
+
+      .checkout-form input {
+        width: 100%;
+        padding: 0.7rem;
+        margin-bottom: 1rem;
+      }
+
+      .remove-btn {
+        margin-top: 1rem;
+        background: #333;
+        color: white;
+        border: none;
+        padding: 0.8rem;
+        cursor: pointer;
+      }
+      .remove-btn:hover {
+        background: brown;
+      }
+
+      .checkout-form {
+        background: brown;
+        box-shadow: 5px 1px 100px 1px black;
+      }
+
+      .checkout-form h3 {
+        margin-bottom: 1rem;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+      }
+
+      .checkout-form input {
+        margin-bottom: 1rem;
+        border-radius: 20px;
+        background-color: rgb(202, 202, 202);
+        color: black;
+      }
+
+      .checkout-form button {
+        width: 100%;
+        max-width: 300px;
+        padding: 0.8rem;
+        background: black;
+        color: white;
+        cursor: pointer;
+        border-radius: 20px;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .checkout-form button:hover {
+        background: gray;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cart-page">
+      <!-- LEFT SIDE -->
+      <div class="cart-table">
+        <table>
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>PRODUCT</th>
+              <th>PRICE</th>
+              <th>QUANTITY</th>
+              <th>SUBTOTAL</th>
+              <th>REMOVE</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items">
+            <!-- Filled dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="cart-summary">
+        <h3>CART TOTALS</h3>
+        <p><strong>Subtotal:</strong> <span id="cart-subtotal">₦0</span></p>
+        <p>
+          <strong>Shipping:</strong><br />Pickup at diAnkoo HQ<br /><small
+            >Shipping to Lagos. <a href="#">Change address</a></small
+          >
+        </p>
+        <p><strong>Total:</strong> <span id="cart-total">₦0</span></p>
+        <button id="checkout-btn">PROCEED TO CHECKOUT</button>
+      </div>
+    </section>
+
+    <section class="checkout-form" id="payment-form">
+      <h3>Enter Card Details</h3>
+      <input type="text" placeholder="Card Number" />
+      <input type="text" placeholder="Expiry Date (MM/YY)" />
+      <input type="text" placeholder="CVV" />
+      <button>Pay Now</button>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartContainer = document.getElementById("cart-items");
+        const subtotalDisplay = document.getElementById("cart-subtotal");
+        const totalDisplay = document.getElementById("cart-total");
+        const paymentForm = document.getElementById("payment-form");
+
+        let total = 0;
+
+        cart.forEach((item, index) => {
+          const row = document.createElement("tr");
+          const quantity = 1;
+          const subtotal = item.price * quantity;
+          total += subtotal;
+
+          row.innerHTML = `
+            <td style="color: black;">${index + 1}</td>
+            <td class="product-info">
+              <img src="picture/BLANK.jpg" alt="${item.name}" />
+              <span style="color: black; font-weight: bold;">${item.name}</span>
+            </td>
+            <td style="color: black;">₦${item.price.toLocaleString()}</td>
+            <td class="quantity-control">
+              <button onclick="updateQty(${index}, -1)">-</button>
+              <span id="qty-${index}">1</span>
+              <button onclick="updateQty(${index}, 1)">+</button>
+            </td>
+            <td id="subtotal-${index}" style="color: black;">₦${subtotal.toLocaleString()}</td>
+            <td>
+              <button class="remove-btn" onclick="removeItem(${index})">&times;</button>
+            </td>
+          `;
+
+          cartContainer.appendChild(row);
+        });
+
+        subtotalDisplay.textContent = `₦${total.toLocaleString()}`;
+        totalDisplay.textContent = `₦${total.toLocaleString()}`;
+
+        document
+          .getElementById("checkout-btn")
+          .addEventListener("click", () => {
+            paymentForm.style.display = "block";
+            paymentForm.scrollIntoView({ behavior: "smooth" });
+          });
+      });
+
+      function removeItem(index) {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        location.reload();
+      }
+
+      function updateQty(index, change) {
+        alert("Quantity update coming soon!");
+      }
+    </script>
+    <section class="footer-section">
+      <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2025 diAnkoo. All rights reserved.</p>
+          <p>Designed with love by <i>Motion</i></p>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </footer>
+    </section>
+    <style>
+      .footer-section {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #333;
+        color: white;
+        text-align: center;
+      }
+
+      .footer-content a {
+        color: #fff;
+        margin: 0 0.5rem;
+        text-decoration: none;
+      }
+
+      .footer-content a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </body>
+</html>

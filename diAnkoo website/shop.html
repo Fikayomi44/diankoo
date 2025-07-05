@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cloth Website</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <!--Header section-->
+    <section>
+      <!--Navigation links-->
+      <div class="sidebar" id="sidebar">
+        <a href="index.html">HOME</a>
+        <a href="shop.html">SHOP</a>
+        <a href="cart.html">CART</a>
+        <a href="#about-section">ABOUT</a>
+      </div>
+      <div class="overlay" id="overlay" onclick="closemenu()"></div>
+
+      <!--Menu bar-->
+      <header class="top-bar">
+        <button class="menu-btn" onclick="openmenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">
+          <img src="picture/LOGO.png" alt="logo" />
+        </div>
+        <div class="icons">
+          <div class="icon1">
+            <i class="fas fa-search"></i>
+          </div>
+          <a href="cart.html" class="icon2">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </div>
+        <div class="search-box" id="searchBox" style="display: none;">
+          <input type="text" id="searchInput" placeholder="Search..." />
+        </div>
+      </header>
+      <div class="search-blur-overlay" id="searchBlur" style="display: none;"></div>
+
+      <!--JS part-->
+      <script src="main.js" defer></script>
+    </section>
+
+    <div class="trending-blur-bg" id="blurLayer"></div>
+    <section class="trending-section">
+      <div class="trending">
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="Product One" />
+          <div class="card-bg">
+            <p class="product-name">One</p>
+            <p class="price">₦7,500</p>
+            <button class="add-to-cart-btn" data-product="One">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="Product Two" />
+          <div class="card-bg">
+            <p class="product-name">Two</p>
+            <p class="price">₦6,200</p>
+            <button class="add-to-cart-btn" data-product="Two">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="three" class="trending-img 3" />
+          <div class="card-bg">
+            <p class="product-name">Three</p>
+            <p class="price">₦5,200</p>
+            <button class="add-to-cart-btn" data-product="Three">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+            </div>
+          </div>
+          <div class="trending-card">
+            <img src="picture/BLANK.jpg" alt="four" class="trending-img 4" />
+            <div class="card-bg">
+            <p class="product-name">Four</p>
+            <p class="price">₦6,800</p>
+            <button class="add-to-cart-btn" data-product="Four">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+            </div>
+          </div>
+          <div class="trending-card">
+            <img src="picture/BLANK.jpg" alt="eight" class="trending-img 8" />
+            <div class="card-bg">
+            <p class="product-name">Five</p>
+            <p class="price">₦7,300</p>
+            <button class="add-to-cart-btn" data-product="Five">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+            </div>
+          </div>
+          <div class="trending-card">
+            <img src="picture/BLANK.jpg" alt="six" class="trending-img 6" />
+            <div class="card-bg">
+            <p class="product-name">Six</p>
+            <p class="price">₦5,900</p>
+            <button class="add-to-cart-btn" data-product="Six">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+            </div>
+          </div>
+          <div class="trending-card">
+            <img src="picture/BLANK.jpg" alt="seven" class="trending-img 7" />
+            <div class="card-bg">
+            <p class="product-name">Seven</p>
+            <p class="price">₦6,400</p>
+            <button class="add-to-cart-btn" data-product="Seven">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+            </div>
+          </div>
+          <div class="trending-card">
+            <img src="picture/BLANK.jpg" alt="eight" class="trending-img 8" />
+            <div class="card-bg">
+            <p class="product-name">Eight</p>
+            <p class="price">₦7,100</p>
+            <button class="add-to-cart-btn" data-product="Eight">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+            </div>
+          </div>
+          <div class="trending-card">
+            <img src="picture/BLANK.jpg" alt="nine" class="trending-img 9" />
+            <div class="card-bg">
+            <p class="product-name">Nine</p>
+            <p class="price">₦5,700</p>
+            <button class="add-to-cart-btn" data-product="Nine">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+            </div>
+          </div>
+        
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="Product Ten" />
+          <div class="card-bg">
+            <p class="product-name">Ten</p>
+            <p class="price">₦6,200</p>
+            <button class="add-to-cart-btn" data-product="Ten">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="Product Eleven" />
+          <div class="card-bg">
+            <p class="product-name">Eleven</p>
+            <p class="price">₦6,200</p>
+            <button class="add-to-cart-btn" data-product="Eleven">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="Product Twelve" />
+          <div class="card-bg">
+            <p class="product-name">Twelve</p>
+            <p class="price">₦6,200</p>
+            <button class="add-to-cart-btn" data-product="Twelve">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="Product Thirteen" />
+          <div class="card-bg">
+            <p class="product-name">Thirteen</p>
+            <p class="price">₦6,200</p>
+            <button class="add-to-cart-btn" data-product="Thirteen">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="Product Fourteen" />
+          <div class="card-bg">
+            <p class="product-name">Fourteen</p>
+            <p class="price">₦6,200</p>
+            <button class="add-to-cart-btn" data-product="Fourteen">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="Product Fifteen" />
+          <div class="card-bg">
+            <p class="product-name">Fifteen</p>
+            <p class="price">₦7,800</p>
+            <button class="add-to-cart-btn" data-product="Fifteen">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="Product Sixteen" />
+          <div class="card-bg">
+            <p class="product-name">Sixteen</p>
+            <p class="price">₦5,400</p>
+            <button class="add-to-cart-btn" data-product="Sixteen">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="Product Seventeen" />
+          <div class="card-bg">
+            <p class="product-name">Seventeen</p>
+            <p class="price">₦6,900</p>
+            <button class="add-to-cart-btn" data-product="Seventeen">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="Product Eighteen" />
+          <div class="card-bg">
+            <p class="product-name">Eighteen</p>
+            <p class="price">₦8,200</p>
+            <button class="add-to-cart-btn" data-product="Eighteen">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="Product Nineteen" />
+          <div class="card-bg">
+            <p class="product-name">Nineteen</p>
+            <p class="price">₦4,700</p>
+            <button class="add-to-cart-btn" data-product="Nineteen">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="Product Twenty" />
+          <div class="card-bg">
+            <p class="product-name">Twenty</p>
+            <p class="price">₦9,300</p>
+            <button class="add-to-cart-btn" data-product="Twenty">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+      </div>        
+      </div>
+  </body>
+</html>
