@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>diAnkoo</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <!--Header section-->
+    <section>
+      <!--Navigation links-->
+      <div class="sidebar" id="sidebar">
+        <a href="index.html">HOME</a>
+        <a href="shop.html">SHOP</a>
+        <a href="cart.html">CART</a>
+        <a href="#about-section" onclick="closemenu()">ABOUT</a>
+      </div>
+      <div class="overlay" id="overlay" onclick="closemenu()"></div>
+
+      <!--Menu bar-->
+      <header class="top-bar">
+        <button class="menu-btn" onclick="openmenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">
+          <img src="picture/LOGO.png" alt="logo" />
+        </div>
+        <div class="icons">
+          <div class="icon1">
+            <i class="fas fa-search"></i>
+          </div>
+          <a href="cart.html" class="icon2">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </div>
+        <div class="search-box" id="searchBox" style="display: none">
+          <input type="text" id="searchInput" placeholder="Search..." />
+        </div>
+      </header>
+      <div
+        class="search-blur-overlay"
+        id="searchBlur"
+        style="display: none"
+      ></div>
+
+      <!--JS part-->
+      <script src="main.js" defer></script>
+    </section>
+
+    <!--Shop section-->
+    <section class="shop-section">
+      <div class="shop-bg"></div>
+      <div class="shop-img">
+        <img src="picture/BLANK.jpg" alt="left design" class="left-img" />
+        <img src="picture/BLANK.jpg" alt="right design" class="right-img" />
+      </div>
+      <div class="shop-content">
+        <a href="shop.html" class="shop-btn">SHOP NOW</a>
+        <p class="shop-text"><i>FOR THE GLORY AND FOR BEAUTY</i></p>
+      </div>
+    </section>
+
+    <!--trending section-->
+    <div class="trending-blur-bg" id="blurLayer"></div>
+    <section class="trending-section">
+      <h1><i>What's Trending?</i></h1>
+      <div class="trending">
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="one" class="trending-img 1" />
+          <div class="card-bg">
+            <p class="product-name">One</p>
+            <p class="price">₦7,500</p>
+            <button class="add-to-cart-btn" data-product="One">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="two" class="trending-img 2" />
+          <div class="card-bg">
+            <p class="product-name">Two</p>
+            <p class="price">₦6,200</p>
+            <button class="add-to-cart-btn" data-product="Two">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="three" class="trending-img 3" />
+          <div class="card-bg">
+            <p class="product-name">Three</p>
+            <p class="price">₦5,200</p>
+            <button class="add-to-cart-btn" data-product="Three">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="four" class="trending-img 4" />
+          <div class="card-bg">
+            <p class="product-name">Four</p>
+            <p class="price">₦6,800</p>
+            <button class="add-to-cart-btn" data-product="Four">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="eight" class="trending-img 8" />
+          <div class="card-bg">
+            <p class="product-name">Five</p>
+            <p class="price">₦7,300</p>
+            <button class="add-to-cart-btn" data-product="Five">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="six" class="trending-img 6" />
+          <div class="card-bg">
+            <p class="product-name">Six</p>
+            <p class="price">₦5,900</p>
+            <button class="add-to-cart-btn" data-product="Six">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="seven" class="trending-img 7" />
+          <div class="card-bg">
+            <p class="product-name">Seven</p>
+            <p class="price">₦6,400</p>
+            <button class="add-to-cart-btn" data-product="Seven">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="eight" class="trending-img 8" />
+          <div class="card-bg">
+            <p class="product-name">Eight</p>
+            <p class="price">₦7,100</p>
+            <button class="add-to-cart-btn" data-product="Eight">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+        <div class="trending-card">
+          <img src="picture/BLANK.jpg" alt="nine" class="trending-img 9" />
+          <div class="card-bg">
+            <p class="product-name">Nine</p>
+            <p class="price">₦5,700</p>
+            <button class="add-to-cart-btn" data-product="Nine">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="see-btn-cont">
+        <a href="shop.html" class="see-btn">
+          <i>SEE MORE <span class="arrow">→</span></i>
+        </a>
+      </div>
+    </section>
+
+    <!--Explore section-->
+    <section class="explore-section">
+      <div class="explore-cards">
+        <div class="explore-card">
+          <img src="picture/BLANK.jpg" alt="" class="explore-img 1" />
+          <h2>JUMBO PACKAGE</h2>
+          <p class="price"><i>₦23,200</i></p>
+          <button class="add-to-cart-btn" data-product="JUMBO PACKAGE">
+            <i class="fas fa-shopping-cart"></i>
+          </button>
+        </div>
+        <div class="explore-card">
+          <img src="picture/BLANK.jpg" alt="" class="explore-img 2" />
+          <h2>PARTY PACKAGE</h2>
+          <p class="price"><i>₦33,500</i></p>
+          <button class="add-to-cart-btn" data-product="PARTY PACKAGE">
+            <i class="fas fa-shopping-cart"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!--Email section-->
+    <section class="email-section">
+      <div class="email-content">
+        <h1>JOIN OUR TRIBE</h1>
+        <p>
+          <i
+            >Subscribe to get updates on new products, sales and promotions
+            directly to your inbox.</i
+          >
+        </p>
+        <form class="email-form">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="email-input"
+            required
+          />
+          <button type="submit" class="email-btn">SUBSCRIBE</button>
+        </form>
+      </div>
+    </section>
+
+    <!--Outro section-->
+    <section class="brand-outro" id="about-section">
+      <p>
+        <strong>diAnkoo</strong> — <em>pronounced</em>
+        <span class="highlight-soft">dee-AHN-koo</span> — a name rooted in the
+        Yoruba-inspired phrase <span class="highlight-bold">“and co”</span>,
+        meaning <span class="highlight-core">to become together</span>. At
+        diAnkoo, fashion is not just what you wear — it is a sacred language of
+        identity, a visual testimony of your inner transformation.
+      </p>
+
+      <p>
+        Guided by the vision
+        <span class="highlight-gold">"FOR GLORY AND FOR BEAUTY"</span>, we
+        create garments that echo eternity — dressing individuals in their
+        <strong>God-given identity</strong>, woven with purpose, faith, and
+        grace. Every collection, every stitch, and every silhouette invites you
+        into a deeper becoming.
+      </p>
+
+      <p>
+        This is not just clothing. This is <em>communion</em> — where timeless
+        elegance meets spiritual narrative. Our minimalist yet powerful design
+        ethos allows space for your story to breathe. Whether you're drawn to
+        <span class="highlight-theme">Becoming</span>, inspired by
+        <span class="highlight-theme">Glory</span>, or longing for the quiet
+        light of <span class="highlight-theme">Hidden Light</span>, each piece
+        is a mirror of divine creativity — made for
+        <strong>her, him, or both</strong>.
+      </p>
+
+      <p>
+        Explore
+        <a href="https://www.diankoo.com.au" target="_blank" class="brand-link"
+          >diankoo.com.au</a
+        >
+        and journey through a seamless experience where browsing, learning, and
+        shopping unfold as one. In time, we’ll unveil content-led series like
+        <span class="highlight-theme">Sunlines</span> and
+        <span class="highlight-theme">Becoming</span>, extending the
+        conversation between fashion and faith.
+      </p>
+
+      <p>
+        <strong class="final-line"
+          >You were made for glory. You were made for beauty. You were made to
+          become — together.</strong
+        >
+      </p>
+      <div class="contact-section">
+        <p>Contact us at:</p>
+
+        <div class="contact-icons">
+          <a href="mailto:hello@diankoo.com" class="contact-link"
+            >hello@diankoo.com</a
+          >
+
+          <div class="social-icons">
+            <a
+              href="https://instagram.com/diankoo"
+              target="_blank"
+              class="social-icon"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://wa.me/2348012345678"
+              target="_blank"
+              class="social-icon"
+            >
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a
+              href="https://twitter.com/diankoo"
+              target="_blank"
+              class="social-icon"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Footer section-->
+    <section class="footer-section">
+      <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2025 diAnkoo. All rights reserved.</p>
+          <p>Designed with love by <i>Motion</i></p>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>
