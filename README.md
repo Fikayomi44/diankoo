@@ -8,7 +8,7 @@ A stylish and spiritual fashion store built with HTML, CSS, and JavaScript.
 - Smooth scrolling search and product filtering
 - Cart page with dynamic totals and checkout form
 
-🎯 Hosted on GitHub Pages: [View Site](https://Fikayomi44.github.io/diankoo-store/)
+🎯 Hosted on GitHub Pages: [View Site](https://github.com/Fikayomi44/diankoo/blob/main/diAnkoo%20website/index.html)
 
 ---
 
