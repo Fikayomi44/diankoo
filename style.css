@@ -6,6 +6,7 @@
 }
 
 .body {
+  width: 100%
   font-family: Arial, sans-serif;
 }
 
@@ -499,7 +500,7 @@ html {
   color: white;
   text-align: center;
   padding: 50px 20px;
-  height: 25rem;
+  height: 35rem;
 }
 
 .email-section h1 {
