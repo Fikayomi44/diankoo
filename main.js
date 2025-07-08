@@ -112,3 +112,113 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".trending-card");
+
+  cards.forEach((card) => {
+    const img = card.querySelector("img");
+
+    const originalSrc = img.getAttribute("src");
+
+    img.addEventListener("mouseover", () => {
+      img.src = "picture/Brown.png";
+    });
+
+    img.addEventListener("mouseout", () => {
+      img.src = originalSrc;
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".trending-card");
+
+  cards.forEach((card) => {
+    const img = card.querySelector("img");
+    const images = [
+      "picture/BLANK.jpg",
+      "picture/Brown.png",
+      "picture/blue.png",
+      "picture/white.png",
+      // add more as needed
+    ];
+
+    let currentIndex = 0;
+
+    const prev = card.querySelector(".prev-arrow");
+    const next = card.querySelector(".next-arrow");
+
+    if (prev && next) {
+      prev.addEventListener("click", (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        img.src = images[currentIndex];
+      });
+
+      next.addEventListener("click", (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % images.length;
+        img.src = images[currentIndex];
+      });
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".trending-card");
+
+  cards.forEach((card) => {
+    const img = card.querySelector("img");
+
+    if (!img) return;
+
+    const originalSrc = img.getAttribute("src");
+
+    card.dataset.originalSrc = originalSrc;
+
+    img.addEventListener("mouseenter", () => {
+      if (!card.classList.contains("focused")) {
+        img.src = "picture/Brown.png";
+      }
+    });
+
+    img.addEventListener("mouseleave", () => {
+      if (!card.classList.contains("focused")) {
+        img.src = card.dataset.originalSrc;
+      }
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".trending-card");
+
+  cards.forEach((card) => {
+    const img = card.querySelector("img");
+    if (!img) return;
+
+    const originalSrc = img.getAttribute("src");
+    card.dataset.originalSrc = originalSrc;
+
+    img.addEventListener("mouseenter", () => {
+      if (!card.classList.contains("focused")) {
+        img.style.opacity = "0";
+        setTimeout(() => {
+          img.src = "picture/Brown.png";
+          img.style.opacity = "1";
+        }, 150);
+      }
+    });
+
+    img.addEventListener("mouseleave", () => {
+      if (!card.classList.contains("focused")) {
+        img.style.opacity = "0";
+        setTimeout(() => {
+          img.src = card.dataset.originalSrc;
+          img.style.opacity = "1";
+        }, 150);
+      }
+    });
+  });
+});
